@@ -20,7 +20,7 @@ router.get('/weather/:city', async (req, res, next) => {
 })
 
 
-router.get('/posts', async (req, res) => {
+router.get('/posts', async (req, res, next) => {
   try {
     const data = await postsService.getPosts()
     res.json(data)
@@ -30,7 +30,7 @@ router.get('/posts', async (req, res) => {
 })
 
 
-router.get('/repos/:username', async (req, res) => {
+router.get('/repos/:username', async (req, res, next) => {
   try {
     const data = await githubService.getRepos(req.params.username)
     res.json(data)
