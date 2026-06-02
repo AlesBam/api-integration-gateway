@@ -1,24 +1,25 @@
 require('dotenv').config()
+
 const express = require('express');
-const app = express();
+
 const config = require('./config')
-const port = config.port
 const logger = require('./utils/logger')
+const routes = require('./routes')
 const apiLimiter = require('./middleware/rateLimiter')
+const errorHandler = require('./middleware/errorHandler')
+
+const app = express();
+const port = config.port
+
 
 app.use(express.json())
 
 
-const routes = require('./routes')
-
-
 app.use('/api', apiLimiter)
-
 
 app.use('/api', routes)
 
 
-const errorHandler = require('./middleware/errorHandler')
 app.use(errorHandler)
 
 

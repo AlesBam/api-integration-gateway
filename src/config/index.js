@@ -5,7 +5,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 
 module.exports = {
   port: process.env.PORT || 3000,
-  openWeather: {
+  openWeather: { timeout: 5000, // Limit 5000 milisekund (5 vteřin)
     apiKey: process.env.OPENWEATHER_API_KEY,
     baseUrl: 'https://api.openweathermap.org/data/2.5'
   },
