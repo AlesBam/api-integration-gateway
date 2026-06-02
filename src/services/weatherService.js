@@ -1,5 +1,11 @@
 const axios = require('axios')
+const axiosRetry = require('axios-retry').default || require('axios-retry')
 const config = require ('../config')
+
+axiosRetry(axios, { 
+  retries: 3, // Kolikrát to zkusí znovu, když to spadne
+  retryDelay: axiosRetry.exponentialDelay // Pauza mezi pokusy se bude prodlužovat (např. 1s, pak 2s, pak 4s...)
+})
 
 const getWeather = async (city) => {
   try {
@@ -8,7 +14,8 @@ const getWeather = async (city) => {
         q: city,
         appid: config.openWeather.apiKey,
         units: 'metric'
-      }
+      },
+      timeout: 5000 // Limit 5000 milisekund (5 vteřin)
     })
     return transform(response.data)
   } catch (error) {
