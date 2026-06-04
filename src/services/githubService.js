@@ -1,6 +1,7 @@
 const axios = require('axios')
 const config = require ('../config')
 
+
 const getRepos = async (username) => {
     const response = await axios.get(`${config.github.baseUrl}/users/${username}/repos` , {
     headers: {
@@ -10,6 +11,7 @@ const getRepos = async (username) => {
 
   return response.data.map(repo => transform(repo))
 }
+
 
 const transform = (data) => {
     return {
@@ -21,5 +23,6 @@ const transform = (data) => {
     stars: data.stargazers_count
   }
 }
+
 
 module.exports = { getRepos }

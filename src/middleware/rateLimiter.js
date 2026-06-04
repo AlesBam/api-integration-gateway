@@ -1,9 +1,10 @@
 const rateLimit = require('express-rate-limit')
 const logger = require('../utils/logger')
 
+
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // Časové okno: 15 minut
-  max: 2, // Maximální počet requestů z jedné IP adresy za dané okno
+  max: 100, // Maximální počet requestů z jedné IP adresy za dané okno
   message: {
     error: 'Too many requests from this IP, please try again after 15 minutes',
     status: 429
@@ -19,5 +20,6 @@ const apiLimiter = rateLimit({
     res.status(options.statusCode).json(options.message)
   }
 })
+
 
 module.exports = apiLimiter

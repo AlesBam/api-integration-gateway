@@ -1,5 +1,6 @@
 const logger = require('../utils/logger')
 
+
 const errorHandler = (err, req, res, next) => {
   const status = err.status || 500
   const message = err.message || 'Internal server error'
@@ -12,5 +13,6 @@ const errorHandler = (err, req, res, next) => {
     status
   })
 }
+
 
 module.exports = errorHandler

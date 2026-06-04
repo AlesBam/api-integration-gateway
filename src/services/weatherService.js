@@ -2,6 +2,7 @@ const axios = require('axios')
 const axiosRetry = require('axios-retry').default || require('axios-retry')
 const config = require ('../config')
 
+
 axiosRetry(axios, {
   retries: 3,
   retryDelay: axiosRetry.exponentialDelay,
@@ -9,6 +10,7 @@ axiosRetry(axios, {
     return error.response?.status >= 500 || !error.response
   }
 })
+
 
 const getWeather = async (city) => {
   try {
@@ -30,6 +32,7 @@ const getWeather = async (city) => {
   }
 }
 
+
 const transform = (data) => {
   return {
     source: 'openweathermap',
@@ -41,5 +44,6 @@ const transform = (data) => {
     description: data.weather[0].description
   }
 }
+
 
 module.exports = { getWeather }

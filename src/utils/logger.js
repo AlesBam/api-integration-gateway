@@ -1,5 +1,6 @@
 const winston = require('winston')
 
+
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(
@@ -12,5 +13,6 @@ const logger = winston.createLogger({
     new winston.transports.File({ filename: 'logs/combined.log' })
   ]
 })
+
 
 module.exports = logger
