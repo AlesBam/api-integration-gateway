@@ -4,7 +4,7 @@ A robust Node.js backend service that connects to multiple external APIs, handle
 
 This project was built to demonstrate real-world backend engineering practices, focusing on reliability, observability, and defensive programming.
 
-## 🚀 Key Features
+## Key Features
 
 * **Unified JSON Model:** Transforms varying payloads from different external APIs into a consistent, predictable internal structure (always including a `source` field).
 * **Resilience & Reliability:** Implements automated **retries** with exponential backoff and **timeouts** (via `axios-retry`) to handle flaky external services.
@@ -17,7 +17,7 @@ This project was built to demonstrate real-world backend engineering practices, 
   * No Authentication (JSONPlaceholder)
 * **Environment Configuration:** Secure management of secrets and environment-specific variables using `dotenv` and a centralized config module.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Runtime:** Node.js
 * **Framework:** Express.js
@@ -25,7 +25,7 @@ This project was built to demonstrate real-world backend engineering practices, 
 * **Logging:** Winston
 * **Utilities:** dotenv, express-rate-limit, axios-retry
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 src/
@@ -37,7 +37,7 @@ src/
 └── server.js         # Application entry point
 ```
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 1. **Clone the repository**
    ```bash
@@ -63,7 +63,7 @@ src/
    node src/server.js
    ```
 
-## 📡 API Reference
+## API Reference
 
 All responses follow a unified format with a `source` identifier.
 
@@ -115,7 +115,7 @@ Fetches mock blog posts via JSONPlaceholder.
   ]
   ```
 
-## 🛡️ Error Responses
+## Error Responses
 
 All errors are intercepted and returned in a standard format. Example of a 404 error:
 
